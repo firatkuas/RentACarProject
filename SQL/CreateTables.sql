@@ -58,16 +58,6 @@ Create Table CarImages(
 
 Alter Table CarImages Add Constraint FK_CarImages_CarId_Cars_Id Foreign Key (CarId) References Cars(Id)
 
-CREATE TABLE [dbo].[Users] (
-    [Id]           INT             IDENTITY (1, 1) NOT NULL,
-    [FirstName]    VARCHAR (50)    NOT NULL,
-    [LastName]     VARCHAR (50)    NOT NULL,
-    [Email]        VARCHAR (50)    NOT NULL,
-    [PasswordHash] VARBINARY (500) NOT NULL,
-    [PasswordSalt] VARBINARY (500) NOT NULL,
-    [Status]       BIT             NOT NULL
-);
-
 CREATE TABLE [dbo].[UserOperationClaims] (
     [Id]               INT IDENTITY (1, 1) NOT NULL,
     [UserId]           INT NOT NULL,

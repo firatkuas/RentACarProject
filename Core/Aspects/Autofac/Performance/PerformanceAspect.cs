@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace Core.CrossCuttingConcerns.Performance
+namespace Core.Aspects.Autofac.Performance
 {
     public class PerformanceAspect : MethodInterception
     {

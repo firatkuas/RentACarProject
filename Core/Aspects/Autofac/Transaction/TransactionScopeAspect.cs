@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Transactions;
 
-namespace Core.CrossCuttingConcerns.Transaction
+namespace Core.Aspects.Autofac.Transaction
 {
     public class TransactionScopeAspect : MethodInterception
     {
@@ -18,7 +18,7 @@ namespace Core.CrossCuttingConcerns.Transaction
                     invocation.Proceed();
                     transactionScope.Complete();
                 }
-                catch (System.Exception e)
+                catch (Exception e)
                 {
                     transactionScope.Dispose();
                     throw;

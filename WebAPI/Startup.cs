@@ -38,6 +38,7 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
             //services.AddSingleton<ICarService, CarManager>();
             //services.AddSingleton<ICarDal, EfCarDal>();
 
@@ -76,7 +77,14 @@ namespace WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.ConfigureCustomExceptionMiddleware();
+
+            //app.UseCors(builder => builder.WithOrigins("http://localhost:4200/").AllowAnyHeader());
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            //app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader());
+
             app.UseHttpsRedirection();
+            app.UseStaticFiles(); //wwwroot klasörü yayýnlama
 
             app.UseRouting();
 
